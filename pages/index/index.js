@@ -8,27 +8,36 @@ Page({
     swiperData: [],
     mainContent:[],
     indicatorDots: true,
-    autoplay: false,
+    autoplay: true,
     interval: 3000,
-    duration: 500
+    duration: 500,
+    isLoading:false
   },
   onLoad: function () {
     this.getData(),
     this.getContent()
   },
   getData(){
+    console.log("app")
+    console.log(app)
+    this.setData({
+      isLoading: true
+    })
     fetch.get("/swiper").then(res=>{
       this.setData({
-        swiperData: res.data
+        swiperData: res.data,
+        isLoading: false
       })
     })
   },
   getContent(){
     fetch.get("/category/books").then(res=>{
-      console.log(res)
+      console.log(res.data)
       this.setData({
         mainContent:res.data
+        
       })
+    }).catch(err=>{
     })
   },
   jumpBook(event){

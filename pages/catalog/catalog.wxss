@@ -1,0 +1,11 @@
+/* pages/catalog/catalog.wxss */
+.catalog{
+  margin: 20rpx 30rpx;
+  border-bottom: 2px solid #555;
+}
+.catalog view{
+  font-size: 16px;
+}
+.catalog view:active{
+  background: #eee
+}

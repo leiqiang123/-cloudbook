@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/details/details",
-    "pages/index/index"
-    
+    "pages/catalog/catalog",
+    "pages/article/article"
   ],
   "window": {
     "backgroundTextStyle": "light",

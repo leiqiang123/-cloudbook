@@ -1,25 +1,25 @@
 <!--index.wxml-->
 <view class='container index'>
+  <image wx:if="{{isLoading}}" class='isLoading' src='/static/img/Spinner-1s-200px.svg'></image>
   <swiper indicator-dots="{{indicatorDots}}"
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{swiperData}}" wx:key="index">
+    <block wx:for="{{swiperData}}" wx:key="{{index}}">
       <swiper-item bindtap='jumpBook' data-id="{{item.book._id}}">
         <image src="{{item.img}}" class="slide-image"/>
       </swiper-item>
     </block>
   </swiper>
 
-
   <view class='main-content'>
-    <view class='content-item' wx:for="{{mainContent}}" key="index">
+    <view class='content-item' wx:for="{{mainContent}}" wx:key="{{index}}">
       <view class='title'>
         {{item.title}}
       </view>
-      <view class='content' wx:for="{{item.books}}" key="index">
-        <view class='content-img'>
+      <view class='content' wx:for="{{item.books}}" wx:key="{{index}}">
+        <view bindtap='jumpBook' data-id="{{item._id}}" class='content-img'>
           <image src='{{item.img}}'></image>
         </view>
-        <view class='content-r'>
+        <view bindtap='jumpBook' data-id="{{item._id}}" class='content-r'>
           <view class='book-title'>{{item.title}}</view>
           <view class='book-r'>{{item.desc}}</view>
           <view class='author'>

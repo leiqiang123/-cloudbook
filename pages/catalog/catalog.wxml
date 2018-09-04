@@ -1,0 +1,7 @@
+<!--pages/catalog/catalog.wxml-->
+<image wx:if="{{isLoading}}" class='isLoading' src='/static/img/Spinner-1s-200px.svg'></image>
+<view class='container catalog' wx:for="{{catalogData}}" wx:key="{{index}}">
+  <view>
+    <navigator url="{{'/pages/article/article?id=' + item._id + '&&bookId=' + bookId}}">{{item.title}}</navigator>
+  </view>
+</view>

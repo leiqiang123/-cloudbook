@@ -1,14 +1,41 @@
 <!--pages/details/details.wxml-->
-<view class='container'>
-  <view class='header'>
-    <view class='book-img'>
-      <image src=''></image>
+<image wx:if="{{isLoading}}" class='isLoading' src='/static/img/Spinner-1s-200px.svg'></image>
+<view>
+  <view class='container'>
+    <view class='header'>
+      <view class='book-img'>
+        <image src='{{bookData.img}}'></image>
+      </view>
+      <view class='book-r'>
+        <text class='book-title'>{{bookData.title}}</text>
+        <text>{{bookData.author}}</text>
+        <text>{{bookData.looknums}}人在看</text>
+        <text>{{bookData.startsnums}}人喜欢</text>
+      </view>
     </view>
-    <view class='book-r'>
-      <text class='book-title'>零基础学Python(第二版)*看云</text>
-      <text>作者</text>
-      <text>24人在看</text>
-      <text>0人喜欢</text>
+    <view class='content-btn'>
+      <view>
+        <button>收藏</button>
+      </view>
+      <view>
+        <button>分享好友</button>
+      </view>
     </view>
+  </view>
+  <view class='summary'>
+    <view class='summary-title'>简介</view>
+    <view class='summary-content'>{{bookData.desc}}</view>
+    <view class='summary-footer'>
+      <view class='catalog'>
+        <view class='lookcatalog'>查看目录</view>
+        <view>共94章</view>
+      </view>
+      <view>
+        <view class='update'>更新与2天前></view>
+      </view>
+    </view>
+  </view>
+  <view class='btn-footer'>
+    <button bindtap='jumpCatalog' data-id='{{bookData._id}}'>阅读该书籍</button>
   </view>
 </view>

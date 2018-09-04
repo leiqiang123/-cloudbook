@@ -1,4 +1,4 @@
-// pages/details/details.js
+// pages/catalog/catalog.js
 import { fetch } from "../../utils/util.js"
 Page({
 
@@ -7,7 +7,7 @@ Page({
    */
   data: {
     bookId:"",
-    bookData:{},
+    catalogData:[],
     isLoading:false
   },
 
@@ -21,18 +21,18 @@ Page({
     })
     this.getData()
   },
-  getData() {
-    fetch.get(`/book/${this.data.bookId}`).then(res => {
+  getData(){
+    fetch.get(`/titles/${this.data.bookId}`).then(res=>{
       this.setData({
-        bookData:res.data,
+        catalogData:res.data,
         isLoading: false
       })
     })
   },
-  jumpCatalog(event){
+  jumparticle(event){
     const id = event.currentTarget.dataset.id
     wx.navigateTo({
-      url: `/pages/catalog/catalog?id=${id}`,
+      url: `/pages/article/article?id=${id}`,
     })
   },
 
