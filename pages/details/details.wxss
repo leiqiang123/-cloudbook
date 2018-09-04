@@ -1,0 +1,23 @@
+/* pages/details/details.wxss */
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.header .book-img {
+  width: 220rpx;
+  height: 330rpx;
+}
+.header .book-r{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-title{
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+}
+.header .book-r text{
+  font-size: 12px;
+  color: #444;
+}

@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/details/details",
+    "pages/index/index"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "学习看书",
+    "navigationBarTextStyle": "black"
+  }
+}

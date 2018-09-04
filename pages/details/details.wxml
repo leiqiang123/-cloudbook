@@ -1,0 +1,14 @@
+<!--pages/details/details.wxml-->
+<view class='container'>
+  <view class='header'>
+    <view class='book-img'>
+      <image src=''></image>
+    </view>
+    <view class='book-r'>
+      <text class='book-title'>零基础学Python(第二版)*看云</text>
+      <text>作者</text>
+      <text>24人在看</text>
+      <text>0人喜欢</text>
+    </view>
+  </view>
+</view>
