@@ -1,15 +1,15 @@
 <!--pages/article/article.wxml-->
-<import src="/towxml/entry.wxml"/>
+
 
 <view class='article'>
   <image wx:if="{{isLoading}}" class='isLoading' src='/static/img/Spinner-1s-200px.svg'></image>
-  <view>
-    <template is="entry" data="{{...article}}"/>
+  <view wx:else class='wemark-wrap' style='font-size:{{numb}}rpx'>
+    <wemark md="{{article}}" highlight type="rich-text"></wemark>
   </view>
 
   <!-- 目录 -->
   <view class='mask' wx:if="{{isShow}}" bindtap='taggleCatalog'></view>
-  <scroll-view scroll-y class='catalog' wx:if="{{isShow}}">
+  <scroll-view scroll-y class='catalog {{isShow ? "active" : ""}}'>
     <view class='catalog-item' bindtap='taggleGet' data-id='{{item._id}}' wx:for="{{catalog}}" wx:key="{{index}}">{{item.title}}</view>
   </scroll-view>
 
@@ -17,8 +17,8 @@
   <view class='menu'>
     <view class='iconfont icon-qiehuanqizuo' bindtap='lastchapter'></view>
     <view class='iconfont icon-fenlei' bindtap='taggleCatalog'></view>
-    <view class='iconfont icon-yueduye_zitizengda'></view>
-    <view class='iconfont icon-yueduye_zitijianxiao'></view>
+    <view class='iconfont icon-yueduye_zitizengda' bindtap='taggleAdd'></view>
+    <view class='iconfont icon-yueduye_zitijianxiao' bindtap='taggleReduce'></view>
     <view class='iconfont icon-qiehuanqiyou' bindtap='nextchapter'></view>
   </view>
 </view>

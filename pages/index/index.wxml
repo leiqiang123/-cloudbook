@@ -1,6 +1,6 @@
 <!--index.wxml-->
-<view class='container index'>
-  <image wx:if="{{isLoading}}" class='isLoading' src='/static/img/Spinner-1s-200px.svg'></image>
+<image wx:if="{{isLoading}}" class='isLoading' src='/static/img/Spinner-1s-200px.svg'></image>
+<view wx:else class='container index'>
   <swiper indicator-dots="{{indicatorDots}}"
     autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{swiperData}}" wx:key="{{index}}">

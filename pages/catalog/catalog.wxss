@@ -1,11 +1,13 @@
 /* pages/catalog/catalog.wxss */
-.catalog{
-  margin: 20rpx 30rpx;
-  border-bottom: 2px solid #555;
-}
-.catalog view{
+
+.catalog-item{
   font-size: 16px;
+  color: #333;
+  line-height: 70rpx;
+  height: 70rpx;
+  padding-left: 20rpx;
+  border-bottom: 1px solid #F1F1F1;
 }
-.catalog view:active{
-  background: #eee
+.catalog-item:active{
+  background: #555;
 }

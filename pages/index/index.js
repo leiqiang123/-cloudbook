@@ -18,8 +18,6 @@ Page({
     this.getContent()
   },
   getData(){
-    console.log("app")
-    console.log(app)
     this.setData({
       isLoading: true
     })
@@ -32,7 +30,6 @@ Page({
   },
   getContent(){
     fetch.get("/category/books").then(res=>{
-      console.log(res.data)
       this.setData({
         mainContent:res.data
         
