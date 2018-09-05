@@ -7,7 +7,9 @@
     </view>
   </view> -->
   <view class='catalog-item' wx:for="{{catalogData}}" wx:key="{{index}}">
-    <navigator url="{{'/pages/article/article?id=' + item._id + '&&bookId=' + bookId}}">{{item.title}}</navigator>
+    <navigator url="{{'/pages/article/article?id=' + item._id + '&&bookId=' + bookId}}">
+      <text class='catalog-text'>{{item.title}}</text>
+    </navigator>
   </view>
 </view>
 

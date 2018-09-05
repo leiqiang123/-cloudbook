@@ -11,3 +11,6 @@
 .catalog-item:active{
   background: #555;
 }
+.catalog-text{
+  margin-left: 30rpx;
+}
