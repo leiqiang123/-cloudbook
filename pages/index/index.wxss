@@ -50,3 +50,30 @@
   color: #444;
 }
 
+/* 下拉加载 */
+.loadMore{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160rpx;
+}
+.loadMore-img{
+  width: 50rpx;
+  height: 50rpx;
+}
+.loadMore text{
+  margin-left: 20rpx;
+}
+
+.footer{
+  width: 100%;
+  height: 70rpx;
+  text-align: center;
+  vertical-align: middle;
+  background: #e9e9e9
+}
+.footer text{
+  font-size: 14px;
+  color: #777;
+  line-height: 70rpx
+}

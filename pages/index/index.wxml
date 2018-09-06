@@ -15,24 +15,33 @@
       <view class='title'>
         {{item.title}}
       </view>
-      <view class='content' wx:for="{{item.books}}" wx:key="{{index}}">
-        <view bindtap='jumpBook' data-id="{{item._id}}" class='content-img'>
-          <image src='{{item.img}}'></image>
+      <view class='content' bindtap='jumpBook' data-id="{{bookItem._id}}" wx:for="{{item.books}}" wx:key="{{index}}" wx:for-item="bookItem">
+        <view  class='content-img'>
+          <image src='{{bookItem.img}}'></image>
         </view>
-        <view bindtap='jumpBook' data-id="{{item._id}}" class='content-r'>
-          <view class='book-title'>{{item.title}}</view>
-          <view class='book-r'>{{item.desc}}</view>
+        <view class='content-r'>
+          <view class='book-title'>{{bookItem.title}}</view>
+          <view class='book-r'>{{bookItem.desc}}</view>
           <view class='author'>
-            <text>{{item.author}}</text>
+            <text>{{bookItem.author}}</text>
             <view class='author-r'>
               <text>两天前\t</text>
               <text>后端开发\t</text>
-              <text>有{{item.looknums}}人在看</text>
+              <text>有{{bookItem.looknums}}人在看</text>
             </view>
           </view>
         </view>
       </view>
     </view>
   </view>
+</view>
+<!-- 上拉加载 -->
+<view wx:if="{{loadDone}}">
+  <view class='loadMore' wx:if="{{hasMore}}">
+    <image src='/static/img/loadingmore.svg' class='loadMore-img'></image>
+    <text>拼命加载中</text>
+  </view>
+
+  <view wx:else class='footer'><text>这已经是底部了哦!</text></view>
 </view>
 

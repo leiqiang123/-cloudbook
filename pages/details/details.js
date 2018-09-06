@@ -8,7 +8,8 @@ Page({
   data: {
     bookId:"",
     bookData:{},
-    isLoading:false
+    isLoading:false,
+    isCollect:0,
   },
 
   /**
@@ -17,15 +18,17 @@ Page({
   onLoad: function (options) {
     this.setData({
       bookId:options.id,
-      isLoading: true
+      isLoading: true,
     })
     this.getData()
   },
   getData() {
     fetch.get(`/book/${this.data.bookId}`).then(res => {
+      console.log(res)
       this.setData({
         bookData:res.data,
-        isLoading: false
+        isLoading: false,
+        isCollect:res.isCollect
       })
     })
   },
@@ -33,6 +36,14 @@ Page({
     const id = event.currentTarget.dataset.id
     wx.navigateTo({
       url: `/pages/catalog/catalog?id=${id}`,
+    })
+  },
+  taggleCollect(){
+    this.setData({
+      isCollect:this.data.isCollect+1
+    })
+    fetch.post("/collection", { bookId: this.data.bookId}).then((res)=>{
+      console.log(res)
     })
   },
 
@@ -81,7 +92,15 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return{
+      title:this.data.bookData.title,
+      path:`/pages/details/details?id=${this.data.bookId}`,
+      imageUrl: this.data.bookData.img
+    }
   }
 })

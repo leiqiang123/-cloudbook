@@ -1,0 +1,25 @@
+<!--pages/appcenter/appcenter.wxml-->
+<view wx:for="{{book}}" wx:key="{{index}}" class='container read'>
+  <view class='read-img'><image src='{{item.book.img}}'></image></view>
+  <view class='read-content'>
+    <view class='read-title'>{{item.book.title}}</view>
+    <view class='read-records'>
+      <view class='records-l'>
+        <view>书籍1/96章节</view>
+        <view><progress percent="20" /></view>
+        <view>上次查看：第一章 Go环境配置</view>
+      </view>
+      <view class='records-r'>
+        <view></view>
+        <view>
+          <view class='records-readed'>已看2%</view>
+          <view>11小时前</view>
+        </view>
+      </view>
+    </view>
+    <view class='read-btn'>
+      <view><button>继续阅读</button></view>
+      <view><button>查看文档</button></view>
+    </view>
+  </view>
+</view>

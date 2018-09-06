@@ -3,12 +3,36 @@
     "pages/index/index",
     "pages/details/details",
     "pages/catalog/catalog",
-    "pages/article/article"
+    "pages/article/article",
+    "pages/appcenter/appcenter",
+    "pages/personcenter/personcenter"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "学习看书",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/img/tabBarimg/主页-01.png",
+        "selectedIconPath": "/static/img/tabBarimg/主页二-01.png"
+      },
+      {
+        "pagePath": "pages/appcenter/appcenter",
+        "text": "学习中心",
+        "iconPath": "/static/img/tabBarimg/应用商店-01.png",
+        "selectedIconPath": "/static/img/tabBarimg/应用商店2-01.png"
+      },
+      {
+        "pagePath": "pages/personcenter/personcenter",
+        "text": "个人中心",
+        "iconPath": "/static/img/tabBarimg/备忘录-01.png",
+        "selectedIconPath": "/static/img/tabBarimg/备忘录2-01.png"
+      }
+    ]
   }
 }

@@ -1,0 +1,51 @@
+/* pages/appcenter/appcenter.wxss */
+.read{
+  display: flex;
+  padding: 20rpx 0;
+}
+.read-img image{
+  width: 220rpx;
+  height: 300rpx;
+}
+.read-content{
+  margin-left: 15rpx;
+  height: 300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.read-title{
+  font-size: 16px;
+  color: #444
+}
+.read-records{
+  display: flex;
+  justify-content: space-between;
+  height: 120rpx;
+  font-size: 12px;
+  color: #777;
+}
+.records-l{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.records-r{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.records-readed{
+  margin-bottom: 15rpx;
+}
+
+
+.read-btn{
+  display: flex;
+  justify-content: space-between;
+  width: 476rpx
+}
+.read-btn button{
+  width: 180rpx;
+  font-size: 14px;
+}
