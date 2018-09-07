@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(this.data.isCollect)
     this.setData({
       bookId:options.id,
       isLoading: true,
@@ -24,7 +25,6 @@ Page({
   },
   getData() {
     fetch.get(`/book/${this.data.bookId}`).then(res => {
-      console.log(res)
       this.setData({
         bookData:res.data,
         isLoading: false,

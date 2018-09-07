@@ -15,7 +15,7 @@
     </view>
     <view class='content-btn'>
       <view>
-        <button disabled='{{isCollect==0?"false":"true"}}' bindtap='taggleCollect'>{{isCollect==0?"收藏":"已收藏"}}</button>
+        <button disabled='{{isCollect == 0 ? false : true}}' bindtap='taggleCollect'>{{isCollect==0?"收藏":"已收藏"}}</button>
       </view>
       <view>
         <button open-type="share">分享好友</button>

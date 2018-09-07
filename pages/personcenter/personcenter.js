@@ -1,20 +1,54 @@
 // pages/personcenter/personcenter.js
+import {fetch} from "../../utils/util.js"
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
-  
+  data: {  
+    usermessage:{},
+    isLoading:true,
+    collectnumbs:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    // 查看是否授权
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+            }
+          })
+        }
+      }
+    })
+    this.getData()
   },
-
+  getData() {
+    fetch.get("/collection").then(res => {
+      this.setData({
+        collectnumbs:res.data.length
+      })
+    })
+  },
+  jumpCollect(){
+    wx.navigateTo({
+      url: '/pages/collection/collection',
+    })
+  },
+  bindGetUserInfo(e){
+    console.log(e.detail.userInfo)
+    this.setData({
+      usermessage: e.detail.userInfo,
+      isLoading:false
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

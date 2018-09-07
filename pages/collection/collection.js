@@ -1,54 +1,40 @@
- // pages/appcenter/appcenter.js
-import { fetch, formatTime } from "../../utils/util.js"
+// pages/collection/collection.js
+import {fetch} from "../../utils/util.js"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    book:[],
+    collectbooks:[]
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getData()
   },
-  getData(){
-    fetch.get('/readList').then(res => {
-      this.addPercent(res.data)
-      console.log(res)
+  getData() {
+    fetch.get("/collection").then(res => {
       this.setData({
-        book: res.data,
+        collectbooks:res.data
       })
     })
   },
-  addPercent(arr){
-    arr.forEach(item=>{
-      item.percent = item.title.index / item.title.total * 100
-      item.percent = item.percent.toFixed(0)
-      item.time = (Date.parse(new Date()) - Date.parse(item.updatedTime))/1000
-      item.time = this.updateTime(item.time.toFixed(0))
-    })
-  },
-  //对更新时间做个判断
-  updateTime(time){
-    if (time<60){
-      return time + '秒前'
-    }else if(time >= 60 && time < 3600){
-      return (time / 60).toFixed(0) + "分钟前"
-    }else if(time >= 3600){
-      return (time / 3600).toFixed(0) + "小时前"
-    }
-  },
-  viewDoc(event){
-    const id = event.currentTarget.dataset.id
+  jumpBook(e){
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: `/pages/details/details?id=${id}`,
     })
   },
-
+  deleteCollect(e){
+    let id = e.currentTarget.dataset.id
+    fetch.delete(`/collection/${id}`).then(res=>{
+      console.log(res)
+    })
+    this.getData()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

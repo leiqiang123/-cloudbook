@@ -5,12 +5,13 @@
     "pages/catalog/catalog",
     "pages/article/article",
     "pages/appcenter/appcenter",
-    "pages/personcenter/personcenter"
+    "pages/personcenter/personcenter",
+    "pages/collection/collection"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "学习看书",
+    "navigationBarTitleText": "微信云书",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -23,7 +24,7 @@
       },
       {
         "pagePath": "pages/appcenter/appcenter",
-        "text": "学习中心",
+        "text": "阅读记录",
         "iconPath": "/static/img/tabBarimg/应用商店-01.png",
         "selectedIconPath": "/static/img/tabBarimg/应用商店2-01.png"
       },

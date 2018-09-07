@@ -1,2 +1,25 @@
 <!--pages/personcenter/personcenter.wxml-->
-
+<button class='btn' wx:if="{{isLoading}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">获取用户信息</button>
+<view wx:else class='personcenter container'>
+  <view class='header-top'>
+    <view class='header-img'><image src='{{usermessage.avatarUrl}}'></image></view>
+    <view class='header-r'>
+      <view>{{usermessage.nickName}}</view>
+      <view class='header-label'>这家伙很懒，什么都没留下</view>
+    </view>
+  </view>
+  <view class='header-bottom'>
+    <view bindtap='jumpCollect'>
+      <view class='bottom-text'>
+        <text>{{collectnumbs}}</text>
+      </view>
+      <view>收藏</view>
+    </view>
+    <view>
+      <view class='bottom-text'>
+        <text>4</text>
+      </view>
+      <view>关注</view>
+    </view>
+  </view>
+</view>

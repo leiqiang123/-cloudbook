@@ -1,0 +1,8 @@
+<!--pages/collection/collection.wxml-->
+<view class='container'>
+  <view class='book-main' wx:for='{{collectbooks}}' wx:key='{{index}}'>
+    <view bindtap='jumpBook' data-id='{{item.book._id}}' class='img'><image src='{{item.book.img}}'></image></view>
+    <text class='title'>{{item.book.title}}</text>
+    <button bindtap='deleteCollect' data-id='{{item.book._id}}' class='del-collection'>取消收藏</button>
+  </view>
+</view>

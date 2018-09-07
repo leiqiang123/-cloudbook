@@ -1,1 +1,43 @@
 /* pages/personcenter/personcenter.wxss */
+.personcenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #93582e;
+  color: #fff;
+  border-radius: 45px;
+}
+.header-top{
+  display: flex;
+  
+}
+.header-img image{
+  margin-top: 30rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 100%;
+}
+.header-r{
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header-label{
+  font-size: 16px;
+}
+.header-bottom{
+  display: flex;
+  justify-content: space-between;
+  padding: 15rpx 150rpx;
+  font-size: 16px;
+}
+.bottom-text{
+  text-align: center;
+}
+.btn{
+  margin-top: 400rpx;
+  width: 400rpx;
+}

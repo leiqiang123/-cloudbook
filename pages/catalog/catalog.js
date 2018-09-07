@@ -29,12 +29,12 @@ Page({
       })
     })
   },
-  jumparticle(event){
-    const id = event.currentTarget.dataset.id
-    wx.navigateTo({
-      url: `/pages/article/article?id=${id}`,
-    })
-  },
+  // jumparticle(event){
+  //   const id = event.currentTarget.dataset.id
+  //   wx.navigateTo({
+  //     url: `/pages/article/article?id=${id}`,
+  //   })
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
