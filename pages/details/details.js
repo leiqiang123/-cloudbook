@@ -10,6 +10,7 @@ Page({
     bookData:{},
     isLoading:false,
     isCollect:0,
+    length:""
   },
 
   /**
@@ -28,7 +29,8 @@ Page({
       this.setData({
         bookData:res.data,
         isLoading: false,
-        isCollect:res.isCollect
+        isCollect:res.isCollect,
+        length:res.length
       })
     })
   },

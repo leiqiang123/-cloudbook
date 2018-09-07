@@ -48,6 +48,8 @@ Page({
         isLoading: true
       })
       fetch.get('/category/books').then(res => {
+        this.getTime(res.data)
+        console.log(res)
         resolve()
         this.setData({
           mainContent: res.data,
@@ -57,9 +59,30 @@ Page({
       })
     })
   },
+  getTime(arr){
+    arr.forEach(item => {
+      item.books.forEach(book => {
+        book.time = (Date.parse(new Date()) - Date.parse(book.updateTime)) / 1000
+        book.time = this.updateTime(book.time.toFixed(0))
+      })
+    })
+  },
+  //对更新时间做个判断
+  updateTime(time) {
+    if (time < 60) {
+      return time + '秒前'
+    } else if (time >= 60 && time < 3600) {
+      return (time / 60).toFixed(0) + "分钟前"
+    } else if (time >= 3600 && time < 86400) {
+      return (time / 3600).toFixed(0) + "小时前"
+    } else if (time >= 86400){
+      return (time / 86400).toFixed(0) + "天前"
+    }
+  },
   getMoreContent(){
     return new Promise((resolve,reject)=>{
       fetch.get('/category/books', { pn: this.data.pn }).then(res => {
+        this.getTime(res.data)
         let newArr = [...this.data.mainContent,...res.data]
         this.setData({
           mainContent: newArr

@@ -28,7 +28,7 @@
     <view class='summary-footer'>
       <view class='catalog'>
         <view class='lookcatalog'>查看目录</view>
-        <view>共94章</view>
+        <view>共{{length}}章</view>
       </view>
       <view>
         <view class='update'>更新与2天前></view>

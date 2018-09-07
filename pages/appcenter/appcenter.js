@@ -38,8 +38,10 @@ Page({
       return time + '秒前'
     }else if(time >= 60 && time < 3600){
       return (time / 60).toFixed(0) + "分钟前"
-    }else if(time >= 3600){
+    }else if(time >= 3600 && time < 86400){
       return (time / 3600).toFixed(0) + "小时前"
+    }else if(time >= 86400) {
+      return (time / 86400).toFixed(0) + "天前"
     }
   },
   viewDoc(event){
