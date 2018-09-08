@@ -7,6 +7,7 @@ Page({
    */
   data: {
     book:[],
+    isLoading:false
   },
 
   /**
@@ -16,11 +17,14 @@ Page({
     this.getData()
   },
   getData(){
+    this.setData({
+      isLoading:true
+    })
     fetch.get('/readList').then(res => {
       this.addPercent(res.data)
-      console.log(res)
       this.setData({
         book: res.data,
+        isLoading:false
       })
     })
   },
@@ -83,7 +87,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.getData()
+    wx.stopPullDownRefresh()
   },
 
   /**

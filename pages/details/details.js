@@ -17,7 +17,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(this.data.isCollect)
     this.setData({
       bookId:options.id,
       isLoading: true,
@@ -26,6 +25,7 @@ Page({
   },
   getData() {
     fetch.get(`/book/${this.data.bookId}`).then(res => {
+      this.getTime(res.data)
       this.setData({
         bookData:res.data,
         isLoading: false,
@@ -33,6 +33,22 @@ Page({
         length:res.length
       })
     })
+  },
+  getTime(obj) {
+    obj.time = (Date.parse(new Date()) - Date.parse(obj.updateTime)) / 1000
+    obj.time = this.updateTime(obj.time.toFixed(0))
+  },
+  //对更新时间做个判断
+  updateTime(time) {
+    if (time < 60) {
+      return time + '秒前'
+    } else if (time >= 60 && time < 3600) {
+      return (time / 60).toFixed(0) + "分钟前"
+    } else if (time >= 3600 && time < 86400) {
+      return (time / 3600).toFixed(0) + "小时前"
+    } else if (time >= 86400) {
+      return (time / 86400).toFixed(0) + "天前"
+    }
   },
   jumpCatalog(event){
     const id = event.currentTarget.dataset.id

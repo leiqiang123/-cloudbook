@@ -49,7 +49,6 @@ Page({
       })
       fetch.get('/category/books').then(res => {
         this.getTime(res.data)
-        console.log(res)
         resolve()
         this.setData({
           mainContent: res.data,

@@ -1,5 +1,6 @@
 <!--pages/collection/collection.wxml-->
-<view class='container'>
+<image wx:if="{{isLoading}}" class='isLoading' src='/static/img/Spinner-1s-200px.svg'></image>
+<view wx:else class='container'>
   <view class='book-main' wx:for='{{collectbooks}}' wx:key='{{index}}'>
     <view bindtap='jumpBook' data-id='{{item.book._id}}' class='img'><image src='{{item.book.img}}'></image></view>
     <text class='title'>{{item.book.title}}</text>

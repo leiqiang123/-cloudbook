@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    collectbooks:[]
+    collectbooks:[],
+    isLoading:false
   },
   
   /**
@@ -16,9 +17,13 @@ Page({
     this.getData()
   },
   getData() {
+    this.setData({
+      isLoading:true
+    })
     fetch.get("/collection").then(res => {
       this.setData({
-        collectbooks:res.data
+        collectbooks:res.data,
+        isLoading:false
       })
     })
   },

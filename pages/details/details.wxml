@@ -31,7 +31,7 @@
         <view>共{{length}}章</view>
       </view>
       <view>
-        <view class='update'>更新与2天前></view>
+        <view class='update'>更新与{{bookData.time}}></view>
       </view>
     </view>
   </view>

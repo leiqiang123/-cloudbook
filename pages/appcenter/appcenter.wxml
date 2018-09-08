@@ -1,29 +1,32 @@
 <!--pages/appcenter/appcenter.wxml-->
-<view wx:for="{{book}}" wx:key="{{index}}" class='container read'>
-  <view class='read-img'><image src='{{item.book.img}}'></image></view>
-  <view class='read-content'>
-    <view class='read-title'>{{item.book.title}}</view>
-    <view class='read-records'>
-      <view class='records-l'>
-        <view>书籍{{item.title.index}}/{{item.title.total}}章节</view>
-        <view><progress percent="{{item.percent}}" /></view>
-        <view>{{item.title.title}}</view>
-      </view>
-      <view class='records-r'>
-        <view></view>
-        <view>
-          <view class='records-readed'>已看{{item.percent}}%</view>
-          <view>{{item.time}}</view>
+<image wx:if="{{isLoading}}" class='isLoading' src='/static/img/Spinner-1s-200px.svg'></image>
+<view wx:else>
+  <view wx:for="{{book}}" wx:key="{{index}}" class='container read'>
+    <view class='read-img'><image src='{{item.book.img}}'></image></view>
+    <view class='read-content'>
+      <view class='read-title'>{{item.book.title}}</view>
+      <view class='read-records'>
+        <view class='records-l'>
+          <view>书籍{{item.title.index}}/{{item.title.total}}章节</view>
+          <view><progress percent="{{item.percent}}" /></view>
+          <view>{{item.title.title}}</view>
+        </view>
+        <view class='records-r'>
+          <view></view>
+          <view>
+            <view class='records-readed'>已看{{item.percent}}%</view>
+            <view>{{item.time}}</view>
+          </view>
         </view>
       </view>
-    </view>
-    <view class='read-btn'>
-      <view>
-        <navigator url="{{'/pages/article/article?id=' + item.title._id + '&&bookId=' + item.book._id}}">
-          <button>继续阅读</button>
-        </navigator>
+      <view class='read-btn'>
+        <view>
+          <navigator url="{{'/pages/article/article?id=' + item.title._id + '&&bookId=' + item.book._id}}">
+            <button>继续阅读</button>
+          </navigator>
+        </view>
+        <view><button bindtap='viewDoc' data-id='{{item.book._id}}'>查看文档</button></view>
       </view>
-      <view><button bindtap='viewDoc' data-id='{{item.book._id}}'>查看文档</button></view>
     </view>
   </view>
 </view>

@@ -22,7 +22,6 @@ Page({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.getUserInfo({
             success: function (res) {
-              console.log(res.userInfo)
             }
           })
         }
@@ -43,7 +42,6 @@ Page({
     })
   },
   bindGetUserInfo(e){
-    console.log(e.detail.userInfo)
     this.setData({
       usermessage: e.detail.userInfo,
       isLoading:false
@@ -81,7 +79,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.getData()
+    wx.stopPullDownRefresh()
   },
 
   /**
