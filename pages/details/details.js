@@ -60,7 +60,8 @@ Page({
     this.setData({
       isCollect:this.data.isCollect+1
     })
-    fetch.post("/collection", { bookId: this.data.bookId}).then((res)=>{
+    fetch.post("/collection", { bookId: 
+    this.data.bookId}).then((res)=>{
       console.log(res)
     })
   },
